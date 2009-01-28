@@ -25,8 +25,8 @@ my $kit = Email::MIME::Kit->new({
 
   like(
     $email->as_string,
-    qr{^Subject: Hello Jimbo Johnson$}m,
-    "plain ol' strings in the subject with 7-bit friend.name",
+    qr{(?m:^Subject: Hello Jimbo Johnson$)},
+    "plain ol' strings in the subject with 7-bit friend.name (qr{})",
   );
 
   like(
