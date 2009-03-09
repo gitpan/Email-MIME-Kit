@@ -24,9 +24,11 @@ Makefile.PL
 MANIFEST			This list of files
 META.yml
 README
+t/alt-kit-reader.t
 t/assemble.t
 t/autoencode.t
 t/borg.t
+t/kits/alt-kit-reader.mkit/manifest.json
 t/kits/borg.mkit/manifest.json
 t/kits/encode.mkit/manifest.json
 t/kits/single.mkit/manifest.json
@@ -36,6 +38,7 @@ t/kits/test.mkit/logo.jpg
 t/kits/test.mkit/manifest.json
 t/kits/test.mkit/manifest.yaml
 t/lib/Email/MIME/Kit/Assembler/Borg.pm
+t/lib/Email/MIME/Kit/ConstKit.pm
 t/lib/Email/MIME/Kit/Renderer/TestRenderer.pm
 t/lib/Email/MIME/Kit/Validator/Simplest.pm
 t/read-json-manifest.t
