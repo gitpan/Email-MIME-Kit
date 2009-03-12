@@ -13,6 +13,7 @@ lib/Email/MIME/Kit/Assembler/Standard.pm
 lib/Email/MIME/Kit/KitReader/Dir.pm
 lib/Email/MIME/Kit/ManifestReader/JSON.pm
 lib/Email/MIME/Kit/ManifestReader/YAML.pm
+lib/Email/MIME/Kit/Renderer/TestRenderer.pm
 lib/Email/MIME/Kit/Role/Assembler.pm
 lib/Email/MIME/Kit/Role/Component.pm
 lib/Email/MIME/Kit/Role/KitReader.pm
@@ -39,7 +40,6 @@ t/kits/test.mkit/manifest.json
 t/kits/test.mkit/manifest.yaml
 t/lib/Email/MIME/Kit/Assembler/Borg.pm
 t/lib/Email/MIME/Kit/ConstKit.pm
-t/lib/Email/MIME/Kit/Renderer/TestRenderer.pm
 t/lib/Email/MIME/Kit/Validator/Simplest.pm
 t/read-json-manifest.t
 t/single.t
