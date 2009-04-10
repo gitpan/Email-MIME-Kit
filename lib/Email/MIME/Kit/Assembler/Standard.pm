@@ -4,7 +4,7 @@ use Moose::Util::TypeConstraints;
 
 with 'Email::MIME::Kit::Role::Assembler';
 
-our $VERSION = '2.003';
+our $VERSION = '2.004';
 
 =head1 NAME
 
@@ -156,7 +156,7 @@ sub _pick_and_set_renderer {
     return;
   }
 
-  my $renderer = $self->_renderer_from_override($self->manifest->{reader});
+  my $renderer = $self->_renderer_from_override($self->manifest->{renderer});
   $self->_set_renderer($renderer);
 }
 
