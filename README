@@ -1,22 +1,12 @@
-Email-MIME-Kit 2.004
-
-INSTALLATION
-
-To install this module, run the following commands:
-
-    perl Makefile.PL
-    make
-    make test
-    make install
 
 
-SUPPORT AND DOCUMENTATION
+This archive contains the distribution Email-MIME-Kit, version
+2.091410:
 
-After installing, you can find documentation for this module with the perldoc command.
+  build messages from templates
 
-    perldoc Email::MIME::Kit
+This software is copyright (c) 2009 by Ricardo Signes.
 
-You can also look for information at:
+This is free software; you can redistribute it and/or modify it under
+the same terms as perl itself.
 
-    Search CPAN
-        http://search.cpan.org/dist/Email-MIME-Kit

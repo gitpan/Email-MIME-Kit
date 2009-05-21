@@ -1,4 +1,6 @@
 package Email::MIME::Kit::Assembler::Borg;
+our $VERSION = '2.091410';
+
 use Moose;
 
 with 'Email::MIME::Kit::Role::Assembler';

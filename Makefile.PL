@@ -1,26 +1,23 @@
-use inc::Module::Install;
 
-all_from 'lib/Email/MIME/Kit.pm';
+use strict;
+use warnings;
 
-repository 'http://github.com/rjbs/email-mime-kit';
+use ExtUtils::MakeMaker;
 
-test_requires 'Test::More'          => 0;
-
-requires 'Email::MIME::Creator' => 1.455; # content-type fix
-requires 'Email::MessageID'     => 1.400; # for the in_brackets method
-requires 'JSON' => 2;                     # the new API
-requires 'Moose' => 0.65;                 # maybe_type
-requires 'String::RewritePrefix';
-
-# This is for the YAML manifest reader, which will probably go into its own
-# dist later. -- rjbs, 2009-01-22
-requires 'YAML::XS';
-
-requires 'File::Basename';  # core! used for picking filename for attachments
-requires 'File::Spec';      # core!
-
-test_requires 'Test::Deep';
-
-auto_manifest;
-
-WriteAll;
+WriteMakefile(
+  DISTNAME  => 'Email-MIME-Kit',
+  NAME      => 'Email::MIME::Kit',
+  AUTHOR    => 'Ricardo\ Signes\ \<rjbs\@cpan\.org\>',
+  ABSTRACT  => 'build messages from templates',
+  VERSION   => '2.091410',
+  EXE_FILES => [ qw() ],
+  (eval { ExtUtils::MakeMaker->VERSION(6.21) } ? (LICENSE => 'perl') : ()),
+  PREREQ_PM    => {
+    "String::RewritePrefix" => '0',
+    "Email::MessageID" => '1.400',
+    "Email::MIME::Creator" => '1.455',
+    "JSON" => '2',
+    "YAML::XS" => '0',
+    "Moose" => '0.65',
+  },
+);

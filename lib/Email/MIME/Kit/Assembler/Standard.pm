@@ -1,16 +1,11 @@
 package Email::MIME::Kit::Assembler::Standard;
+our $VERSION = '2.091410';
+
 use Moose;
 use Moose::Util::TypeConstraints;
+# ABSTRACT: a badly documented assembler role
 
 with 'Email::MIME::Kit::Role::Assembler';
-
-our $VERSION = '2.004';
-
-=head1 NAME
-
-Email::MIME::Kit::Assembler::Standard - a badly documented assembler role
-
-=cut
 
 use Email::MIME::Creator;
 use Encode ();
@@ -336,3 +331,30 @@ sub _setup_content_ids {
 no Moose::Util::TypeConstraints;
 no Moose;
 1;
+
+__END__
+
+=pod
+
+=head1 NAME
+
+Email::MIME::Kit::Assembler::Standard - a badly documented assembler role
+
+=head1 VERSION
+
+version 2.091410
+
+=head1 AUTHOR
+
+  Ricardo Signes <rjbs@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2009 by Ricardo Signes.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as perl itself.
+
+=cut 
+
+

@@ -1,4 +1,6 @@
 package Email::MIME::Kit::Validator::Simplest;
+our $VERSION = '2.091410';
+
 use Moose;
 with 'Email::MIME::Kit::Role::Validator';
 

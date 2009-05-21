@@ -1,95 +1,15 @@
 package Email::MIME::Kit;
+our $VERSION = '2.091410';
+
 require 5.008;
 use Moose;
 use Moose::Util::TypeConstraints;
+# ABSTRACT: build messages from templates
 
 use Email::MIME;
 use Email::MessageID;
 use String::RewritePrefix;
 
-our $VERSION = '2.004';
-
-=head1 NAME
-
-Email::MIME::Kit - build messages from templates
-
-=head1 WARNING
-
-B<Achtung!>  Even though this is marked a version 2.000, it is not a stable,
-well-proven interface.  It is a complete rewrite of a version-1 product that
-was used only internally.  You may want to wait for this warning to go away
-before relying on this code in your production environment.
-
-  -- rjbs, 2009-01-24
-
-=head1 SYNOPSIS
-
-  use Email::MIME::Kit;
-
-  my $kit = Email::MIME::Kit->new({ source => 'mkits/sample.mkit' });
-
-  my $email = $kit->assemble({
-    account           => $new_signup,
-    verification_code => $token,
-    ... and any other template vars ...
-  });
-
-  $transport->send($email, { ... });
-
-=head2 DESCRIPTION
-
-Email::MIME::Kit is a templating system for email messages.  Instead of trying
-to be yet another templating system for chunks of text, it makes it easy to
-build complete email messages.
-
-It handles the construction of multipart messages, text and HTML alternatives,
-attachments, interpart linking, string encoding, and parameter validation.
-
-Although nearly every part of Email::MIME::Kit is a replaceable component, the
-stock configuration is probably enough for most use.  A message kit will be
-stored as a directory that might look like this:
-
-  sample.mkit/
-    manifest.json
-    body.txt
-    body.html
-    logo.jpg
-
-The manifest file tells Email::MIME::Kit how to put it all together, and might
-look something like this:
-
-  {
-    "renderer": "TT",
-    "header": [
-      { "From": "WY Corp <noreplies@wy.example.com>" },
-      { "Subject": "Welcome aboard, [% recruit.name %]!" }
-    ],
-    "alternatives": [
-      { "type": "text/plain", "path": "body.txt" },
-      {
-        "type": "text/html",
-        "path": "body.html",
-        "container_type": "multipart/related",
-        "attachments": [ { "type": "image/jpeg", "path": "logo.jpg" } ]
-      }
-    ]
-  }
-
-B<Please note:> the assembly of HTML documents as multipart/related bodies will
-probably be simplified with an alternate assembler in the near future.
-
-The above manifest would build a multipart alternative message.  GUI mail
-clients would see a rendered HTML document with the logo graphic visible from
-the attachment.  Text mail clients would see the plaintext.
-
-Both the HTML and text parts would be rendered using the named renderer, which
-here is Template-Toolkit.  (Note that at the time of this writing, no TT
-renderer has been written.)
-
-The message would be assembled and returned as an Email::MIME object, just as
-easily as suggested in the L</SYNOPSIS> above.
-
-=cut
 
 has source => (is => 'ro', required => 1);
 
@@ -239,13 +159,105 @@ sub _generate_content_id {
   Email::MessageID->new->in_brackets;
 }
 
+
+no Moose::Util::TypeConstraints;
+no Moose;
+1;
+
+__END__
+
+=pod
+
+=head1 NAME
+
+Email::MIME::Kit - build messages from templates
+
+=head1 VERSION
+
+version 2.091410
+
+=head1 WARNING
+
+B<Achtung!>  Even though this is marked a version 2.000, it is not a stable,
+well-proven interface.  It is a complete rewrite of a version-1 product that
+was used only internally.  You may want to wait for this warning to go away
+before relying on this code in your production environment.
+
+    -- rjbs, 2009-01-24
+
+=head1 SYNOPSIS
+
+    use Email::MIME::Kit;
+
+    my $kit = Email::MIME::Kit->new({ source => 'mkits/sample.mkit' });
+
+    my $email = $kit->assemble({
+      account           => $new_signup,
+      verification_code => $token,
+      ... and any other template vars ...
+    });
+
+    $transport->send($email, { ... });
+
+=head2 DESCRIPTION
+
+Email::MIME::Kit is a templating system for email messages.  Instead of trying
+to be yet another templating system for chunks of text, it makes it easy to
+build complete email messages.
+
+It handles the construction of multipart messages, text and HTML alternatives,
+attachments, interpart linking, string encoding, and parameter validation.
+
+Although nearly every part of Email::MIME::Kit is a replaceable component, the
+stock configuration is probably enough for most use.  A message kit will be
+stored as a directory that might look like this:
+
+    sample.mkit/
+      manifest.json
+      body.txt
+      body.html
+      logo.jpg
+
+The manifest file tells Email::MIME::Kit how to put it all together, and might
+look something like this:
+
+    {
+      "renderer": "TT",
+      "header": [
+        { "From": "WY Corp <noreplies@wy.example.com>" },
+        { "Subject": "Welcome aboard, [% recruit.name %]!" }
+      ],
+      "alternatives": [
+        { "type": "text/plain", "path": "body.txt" },
+        {
+          "type": "text/html",
+          "path": "body.html",
+          "container_type": "multipart/related",
+          "attachments": [ { "type": "image/jpeg", "path": "logo.jpg" } ]
+        }
+      ]
+    }
+
+B<Please note:> the assembly of HTML documents as multipart/related bodies will
+probably be simplified with an alternate assembler in the near future.
+
+The above manifest would build a multipart alternative message.  GUI mail
+clients would see a rendered HTML document with the logo graphic visible from
+the attachment.  Text mail clients would see the plaintext.
+
+Both the HTML and text parts would be rendered using the named renderer, which
+here is Template-Toolkit.
+
+The message would be assembled and returned as an Email::MIME object, just as
+easily as suggested in the L</SYNOPSIS> above.
+
 =head1 PERL EMAIL PROJECT
 
 This module is maintained by the Perl Email Project
 
 L<http://emailproject.perl.org/wiki/Email::MIME::Kit>
 
-=head1 AUTHORS
+=head1 AUTHOR
 
 This code was written in 2009 by Ricardo SIGNES.  It was based on a previous
 implementation by Hans Dieter Pearcey written in 2006.
@@ -254,13 +266,11 @@ The development of this code was sponsored by Pobox.com.  Thanks, Pobox!
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2009 by Ricardo SIGNES
+This software is copyright (c) 2009 by Ricardo Signes.
 
-This library is free software; you can redistribute it and/or modify it under
-the same terms as Perl itself.
+This is free software; you can redistribute it and/or modify it under
+the same terms as perl itself.
 
-=cut
+=cut 
 
-no Moose::Util::TypeConstraints;
-no Moose;
-1;
+
