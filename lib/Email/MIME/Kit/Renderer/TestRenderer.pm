@@ -1,5 +1,5 @@
 package Email::MIME::Kit::Renderer::TestRenderer;
-our $VERSION = '2.091410';
+our $VERSION = '2.091430';
 
 use Moose;
 with 'Email::MIME::Kit::Role::Renderer';
@@ -35,7 +35,7 @@ Email::MIME::Kit::Renderer::TestRenderer - extremely simple renderer for testing
 
 =head1 VERSION
 
-version 2.091410
+version 2.091430
 
 =head1 WARNING
 

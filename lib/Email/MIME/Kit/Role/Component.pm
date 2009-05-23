@@ -1,5 +1,5 @@
 package Email::MIME::Kit::Role::Component;
-our $VERSION = '2.091410';
+our $VERSION = '2.091430';
 
 use Moose::Role;
 # ABSTRACT: things that are kit components
@@ -25,7 +25,7 @@ Email::MIME::Kit::Role::Component - things that are kit components
 
 =head1 VERSION
 
-version 2.091410
+version 2.091430
 
 =head1 DESCRIPTION
 

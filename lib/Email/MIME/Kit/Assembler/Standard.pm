@@ -1,5 +1,5 @@
 package Email::MIME::Kit::Assembler::Standard;
-our $VERSION = '2.091410';
+our $VERSION = '2.091430';
 
 use Moose;
 use Moose::Util::TypeConstraints;
@@ -342,7 +342,7 @@ Email::MIME::Kit::Assembler::Standard - a badly documented assembler role
 
 =head1 VERSION
 
-version 2.091410
+version 2.091430
 
 =head1 AUTHOR
 
