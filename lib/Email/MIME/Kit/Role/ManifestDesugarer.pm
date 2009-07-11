@@ -1,5 +1,5 @@
 package Email::MIME::Kit::Role::ManifestDesugarer;
-our $VERSION = '2.091430';
+our $VERSION = '2.091920';
 
 use Moose::Role;
 # ABSTRACT: helper for desugaring manifests
@@ -46,7 +46,7 @@ Email::MIME::Kit::Role::ManifestDesugarer - helper for desugaring manifests
 
 =head1 VERSION
 
-version 2.091430
+version 2.091920
 
 =head1 IMPLEMENTING
 
@@ -60,17 +60,17 @@ At present, desugaring is what allows the C<type> attribute in attachments and
 alternatives to be given instead of a C<content_type> entry in the
 C<attributes> entry.  In other words, desugaring turns:
 
-    {
-      header => [ ... ],
-      type   => 'text/plain',
-    }
+  {
+    header => [ ... ],
+    type   => 'text/plain',
+  }
 
 Into:
 
-    {
-      header => [ ... ],
-      attributes => { content_type => 'text/plain' },
-    }
+  {
+    header => [ ... ],
+    attributes => { content_type => 'text/plain' },
+  }
 
 More behavior may be added to the desugarer later.
 

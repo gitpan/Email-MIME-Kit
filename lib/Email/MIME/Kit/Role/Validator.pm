@@ -1,5 +1,5 @@
 package Email::MIME::Kit::Role::Validator;
-our $VERSION = '2.091430';
+our $VERSION = '2.091920';
 
 use Moose::Role;
 # ABSTRACT: things that validate assembly parameters
@@ -22,7 +22,7 @@ Email::MIME::Kit::Role::Validator - things that validate assembly parameters
 
 =head1 VERSION
 
-version 2.091430
+version 2.091920
 
 =head1 IMPLEMENTING
 

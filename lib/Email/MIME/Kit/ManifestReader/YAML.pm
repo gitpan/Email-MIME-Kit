@@ -1,5 +1,5 @@
 package Email::MIME::Kit::ManifestReader::YAML;
-our $VERSION = '2.091430';
+our $VERSION = '2.091920';
 
 use Moose;
 # ABSTRACT: read manifest.yaml files
@@ -32,7 +32,7 @@ Email::MIME::Kit::ManifestReader::YAML - read manifest.yaml files
 
 =head1 VERSION
 
-version 2.091430
+version 2.091920
 
 =head1 AUTHOR
 

@@ -1,9 +1,9 @@
 package Email::MIME::Kit::Assembler::Standard;
-our $VERSION = '2.091430';
+our $VERSION = '2.091920';
 
 use Moose;
 use Moose::Util::TypeConstraints;
-# ABSTRACT: a badly documented assembler role
+# ABSTRACT: the standard kit assembler
 
 with 'Email::MIME::Kit::Role::Assembler';
 
@@ -320,7 +320,7 @@ sub _setup_content_ids {
 
     my $cid = $self->kit->_generate_content_id;
     push @{ $att->{header} }, {
-      'Content-Id' => $cid,
+      'Content-Id' => "<$cid>",
       ':renderer'  => undef,
     };
 
@@ -338,11 +338,11 @@ __END__
 
 =head1 NAME
 
-Email::MIME::Kit::Assembler::Standard - a badly documented assembler role
+Email::MIME::Kit::Assembler::Standard - the standard kit assembler
 
 =head1 VERSION
 
-version 2.091430
+version 2.091920
 
 =head1 AUTHOR
 

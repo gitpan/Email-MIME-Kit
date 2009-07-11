@@ -1,5 +1,5 @@
 package Email::MIME::Kit::Renderer::TestRenderer;
-our $VERSION = '2.091430';
+our $VERSION = '2.091920';
 
 use Moose;
 with 'Email::MIME::Kit::Role::Renderer';
@@ -35,7 +35,7 @@ Email::MIME::Kit::Renderer::TestRenderer - extremely simple renderer for testing
 
 =head1 VERSION
 
-version 2.091430
+version 2.091920
 
 =head1 WARNING
 
@@ -51,15 +51,15 @@ it does them well enough to test simple kits.
 
 Given the following template:
 
-    This will say "I love pie": [% actor %] [% m_obj.verb() %] [% z_by("me") %]
+  This will say "I love pie": [% actor %] [% m_obj.verb() %] [% z_by("me") %]
 
 ...and the following set of variables:
 
-    {
-      actor => 'I',
-      m_obj => $object_whose_verb_method_returns_love,
-      z_by  => sub { 'me' },
-    }
+  {
+    actor => 'I',
+    m_obj => $object_whose_verb_method_returns_love,
+    z_by  => sub { 'me' },
+  }
 
 ..then it will be a true statement.
 
@@ -67,7 +67,7 @@ In method calls, the parens are B<not> optional.  Anything between them (or
 between the parens in a coderef call) is evaluated like perl code.  For
 example, this will actually get the OS:
 
-    [% z_by($^O) %]
+  [% z_by($^O) %]
 
 =head1 AUTHOR
 

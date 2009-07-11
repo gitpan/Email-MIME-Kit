@@ -1,5 +1,5 @@
 package Email::MIME::Kit::Role::Renderer;
-our $VERSION = '2.091430';
+our $VERSION = '2.091920';
 
 use Moose::Role;
 with 'Email::MIME::Kit::Role::Component';
@@ -21,7 +21,7 @@ Email::MIME::Kit::Role::Renderer - things that render templates into contents
 
 =head1 VERSION
 
-version 2.091430
+version 2.091920
 
 =head1 IMPLEMENTING
 
@@ -31,7 +31,7 @@ Classes implementing this role must provide a C<render> method, which is
 expected to turn a template and arguments into rendered output.  The method is
 used like this:
 
-    my $output_ref = $renderer->render($input_ref, \%arg);
+  my $output_ref = $renderer->render($input_ref, \%arg);
 
 =head1 AUTHOR
 

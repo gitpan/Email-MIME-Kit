@@ -1,5 +1,5 @@
 package Email::MIME::Kit::KitReader::Dir;
-our $VERSION = '2.091430';
+our $VERSION = '2.091920';
 
 use Moose;
 with 'Email::MIME::Kit::Role::KitReader';
@@ -31,7 +31,7 @@ Email::MIME::Kit::KitReader::Dir - read kit entries out of a directory
 
 =head1 VERSION
 
-version 2.091430
+version 2.091920
 
 =head1 AUTHOR
 

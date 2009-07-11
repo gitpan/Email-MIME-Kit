@@ -1,5 +1,5 @@
 package Email::MIME::Kit;
-our $VERSION = '2.091430';
+our $VERSION = '2.091920';
 
 require 5.008;
 use Moose;
@@ -156,7 +156,7 @@ has assembler => (
 );
 
 sub _generate_content_id {
-  Email::MessageID->new->in_brackets;
+  Email::MessageID->new->as_string;
 }
 
 
@@ -174,7 +174,7 @@ Email::MIME::Kit - build messages from templates
 
 =head1 VERSION
 
-version 2.091430
+version 2.091920
 
 =head1 WARNING
 
@@ -183,21 +183,21 @@ well-proven interface.  It is a complete rewrite of a version-1 product that
 was used only internally.  You may want to wait for this warning to go away
 before relying on this code in your production environment.
 
-    -- rjbs, 2009-01-24
+  -- rjbs, 2009-01-24
 
 =head1 SYNOPSIS
 
-    use Email::MIME::Kit;
+  use Email::MIME::Kit;
 
-    my $kit = Email::MIME::Kit->new({ source => 'mkits/sample.mkit' });
+  my $kit = Email::MIME::Kit->new({ source => 'mkits/sample.mkit' });
 
-    my $email = $kit->assemble({
-      account           => $new_signup,
-      verification_code => $token,
-      ... and any other template vars ...
-    });
+  my $email = $kit->assemble({
+    account           => $new_signup,
+    verification_code => $token,
+    ... and any other template vars ...
+  });
 
-    $transport->send($email, { ... });
+  $transport->send($email, { ... });
 
 =head1 DESCRIPTION
 
@@ -212,31 +212,31 @@ Although nearly every part of Email::MIME::Kit is a replaceable component, the
 stock configuration is probably enough for most use.  A message kit will be
 stored as a directory that might look like this:
 
-    sample.mkit/
-      manifest.json
-      body.txt
-      body.html
-      logo.jpg
+  sample.mkit/
+    manifest.json
+    body.txt
+    body.html
+    logo.jpg
 
 The manifest file tells Email::MIME::Kit how to put it all together, and might
 look something like this:
 
-    {
-      "renderer": "TT",
-      "header": [
-        { "From": "WY Corp <noreplies@wy.example.com>" },
-        { "Subject": "Welcome aboard, [% recruit.name %]!" }
-      ],
-      "alternatives": [
-        { "type": "text/plain", "path": "body.txt" },
-        {
-          "type": "text/html",
-          "path": "body.html",
-          "container_type": "multipart/related",
-          "attachments": [ { "type": "image/jpeg", "path": "logo.jpg" } ]
-        }
-      ]
-    }
+  {
+    "renderer": "TT",
+    "header": [
+      { "From": "WY Corp <noreplies@wy.example.com>" },
+      { "Subject": "Welcome aboard, [% recruit.name %]!" }
+    ],
+    "alternatives": [
+      { "type": "text/plain", "path": "body.txt" },
+      {
+        "type": "text/html",
+        "path": "body.html",
+        "container_type": "multipart/related",
+        "attachments": [ { "type": "image/jpeg", "path": "logo.jpg" } ]
+      }
+    ]
+  }
 
 B<Please note:> the assembly of HTML documents as multipart/related bodies will
 probably be simplified with an alternate assembler in the near future.

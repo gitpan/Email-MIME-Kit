@@ -2,9 +2,17 @@
    "resources" : {
       "repository" : "http://github.com/rjbs/email-mime-kit/tree"
    },
-   "generated_by" : "Dist::Zilla::Plugin::MetaJSON version 1.091370",
-   "version" : "2.091430",
+   "meta-spec" : {
+      "version" : 1.4,
+      "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
+   },
+   "generated_by" : "Dist::Zilla::Plugin::MetaJSON version 1.091480",
+   "version" : "2.091920",
    "name" : "Email-MIME-Kit",
+   "author" : [
+      "Ricardo Signes <rjbs@cpan.org>"
+   ],
+   "license" : "perl",
    "requires" : {
       "String::RewritePrefix" : "0",
       "Email::MessageID" : "1.400",
@@ -14,9 +22,5 @@
       "Test::Deep" : "0",
       "Moose" : "0.65"
    },
-   "abstract" : "build messages from templates",
-   "author" : [
-      "Ricardo Signes <rjbs@cpan.org>"
-   ],
-   "license" : "perl"
+   "abstract" : "build messages from templates"
 }
