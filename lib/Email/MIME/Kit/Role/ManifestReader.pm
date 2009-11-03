@@ -1,5 +1,6 @@
 package Email::MIME::Kit::Role::ManifestReader;
-our $VERSION = '2.091920';
+our $VERSION = '2.093070';
+
 
 use Moose::Role;
 with 'Email::MIME::Kit::Role::Component';
@@ -12,7 +13,6 @@ no Moose::Role;
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -21,7 +21,7 @@ Email::MIME::Kit::Role::ManifestReader - things that read kit manifests
 
 =head1 VERSION
 
-version 2.091920
+version 2.093070
 
 =head1 IMPLEMENTING
 
@@ -40,8 +40,7 @@ role should probably include L<Email::MIME::Kit::Role::ManifestDesugarer>, too.
 This software is copyright (c) 2009 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
-the same terms as perl itself.
+the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

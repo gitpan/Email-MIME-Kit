@@ -1,5 +1,6 @@
 package Email::MIME::Kit::Role::Component;
-our $VERSION = '2.091920';
+our $VERSION = '2.093070';
+
 
 use Moose::Role;
 # ABSTRACT: things that are kit components
@@ -16,7 +17,6 @@ no Moose::Role;
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -25,7 +25,7 @@ Email::MIME::Kit::Role::Component - things that are kit components
 
 =head1 VERSION
 
-version 2.091920
+version 2.093070
 
 =head1 DESCRIPTION
 
@@ -42,8 +42,7 @@ Email::MIME::Kit into which the component was installed.
 This software is copyright (c) 2009 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
-the same terms as perl itself.
+the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

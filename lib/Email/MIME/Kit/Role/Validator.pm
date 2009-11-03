@@ -1,5 +1,6 @@
 package Email::MIME::Kit::Role::Validator;
-our $VERSION = '2.091920';
+our $VERSION = '2.093070';
+
 
 use Moose::Role;
 # ABSTRACT: things that validate assembly parameters
@@ -13,7 +14,6 @@ no Moose::Role;
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -22,7 +22,7 @@ Email::MIME::Kit::Role::Validator - things that validate assembly parameters
 
 =head1 VERSION
 
-version 2.091920
+version 2.093070
 
 =head1 IMPLEMENTING
 
@@ -43,8 +43,7 @@ should raise an exception.
 This software is copyright (c) 2009 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
-the same terms as perl itself.
+the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

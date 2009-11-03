@@ -1,5 +1,6 @@
 package Email::MIME::Kit::Renderer::TestRenderer;
-our $VERSION = '2.091920';
+our $VERSION = '2.093070';
+
 
 use Moose;
 with 'Email::MIME::Kit::Role::Renderer';
@@ -26,7 +27,6 @@ no Moose;
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -35,13 +35,7 @@ Email::MIME::Kit::Renderer::TestRenderer - extremely simple renderer for testing
 
 =head1 VERSION
 
-version 2.091920
-
-=head1 WARNING
-
-Seriously, this is horrible code.  If you want, look at it.  It's swell for
-testing simple things, but if you use this for real mkits, you're going to be
-upset by something horrible soon.
+version 2.093070
 
 =head1 DESCRIPTION
 
@@ -69,6 +63,12 @@ example, this will actually get the OS:
 
   [% z_by($^O) %]
 
+=head1 WARNING
+
+Seriously, this is horrible code.  If you want, look at it.  It's swell for
+testing simple things, but if you use this for real mkits, you're going to be
+upset by something horrible soon.
+
 =head1 AUTHOR
 
   Ricardo Signes <rjbs@cpan.org>
@@ -78,8 +78,7 @@ example, this will actually get the OS:
 This software is copyright (c) 2009 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
-the same terms as perl itself.
+the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

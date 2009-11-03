@@ -7,18 +7,20 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
   DISTNAME  => 'Email-MIME-Kit',
   NAME      => 'Email::MIME::Kit',
-  AUTHOR    => 'Ricardo\ Signes\ \<rjbs\@cpan\.org\>',
-  ABSTRACT  => 'build\ messages\ from\ templates',
-  VERSION   => '2.091920',
+  AUTHOR    => "Ricardo\ Signes\ \<rjbs\@cpan\.org\>",
+  ABSTRACT  => "build\ messages\ from\ templates",
+  VERSION   => '2.093070',
   EXE_FILES => [ qw() ],
-  (eval { ExtUtils::MakeMaker->VERSION(6.21) } ? (LICENSE => 'perl') : ()),
+  (eval { ExtUtils::MakeMaker->VERSION(6.31) } ? (LICENSE => 'perl') : ()),
   PREREQ_PM    => {
-    "String::RewritePrefix" => '0',
+    "Email::MIME" => '1.900',
     "Email::MessageID" => '1.400',
-    "Email::MIME::Creator" => '1.455',
+    "String::RewritePrefix" => '0',
     "JSON" => '2',
-    "YAML::XS" => '0',
     "Test::Deep" => '0',
+    "YAML::XS" => '0',
     "Moose" => '0.65',
   },
+  test => {TESTS => 't/*.t'}
 );
+

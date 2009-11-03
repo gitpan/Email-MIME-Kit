@@ -1,5 +1,6 @@
 package Email::MIME::Kit::Role::ManifestDesugarer;
-our $VERSION = '2.091920';
+our $VERSION = '2.093070';
+
 
 use Moose::Role;
 # ABSTRACT: helper for desugaring manifests
@@ -37,7 +38,6 @@ no Moose::Role;
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -46,7 +46,7 @@ Email::MIME::Kit::Role::ManifestDesugarer - helper for desugaring manifests
 
 =head1 VERSION
 
-version 2.091920
+version 2.093070
 
 =head1 IMPLEMENTING
 
@@ -83,8 +83,7 @@ More behavior may be added to the desugarer later.
 This software is copyright (c) 2009 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
-the same terms as perl itself.
+the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

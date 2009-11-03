@@ -1,5 +1,6 @@
 package Email::MIME::Kit;
-our $VERSION = '2.091920';
+our $VERSION = '2.093070';
+
 
 require 5.008;
 use Moose;
@@ -165,7 +166,6 @@ no Moose;
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -174,16 +174,7 @@ Email::MIME::Kit - build messages from templates
 
 =head1 VERSION
 
-version 2.091920
-
-=head1 WARNING
-
-B<Achtung!>  Even though this is marked a version 2.000, it is not a stable,
-well-proven interface.  It is a complete rewrite of a version-1 product that
-was used only internally.  You may want to wait for this warning to go away
-before relying on this code in your production environment.
-
-  -- rjbs, 2009-01-24
+version 2.093070
 
 =head1 SYNOPSIS
 
@@ -251,6 +242,15 @@ here is Template-Toolkit.
 The message would be assembled and returned as an Email::MIME object, just as
 easily as suggested in the L</SYNOPSIS> above.
 
+=head1 WARNING
+
+B<Achtung!>  Even though this is marked a version 2.000, it is not a stable,
+well-proven interface.  It is a complete rewrite of a version-1 product that
+was used only internally.  You may want to wait for this warning to go away
+before relying on this code in your production environment.
+
+  -- rjbs, 2009-01-24
+
 =head1 PERL EMAIL PROJECT
 
 This module is maintained by the Perl Email Project
@@ -264,13 +264,16 @@ implementation by Hans Dieter Pearcey written in 2006.
 
 The development of this code was sponsored by Pobox.com.  Thanks, Pobox!
 
+=head1 AUTHOR
+
+  Ricardo Signes <rjbs@cpan.org>
+
 =head1 COPYRIGHT AND LICENSE
 
 This software is copyright (c) 2009 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
-the same terms as perl itself.
+the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

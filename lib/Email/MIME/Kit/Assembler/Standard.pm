@@ -1,5 +1,6 @@
 package Email::MIME::Kit::Assembler::Standard;
-our $VERSION = '2.091920';
+our $VERSION = '2.093070';
+
 
 use Moose;
 use Moose::Util::TypeConstraints;
@@ -69,8 +70,12 @@ sub _assemble_from_string {
   $attr{content_type} = $attr{content_type} || 'text/plain';
 
   if ($$body_ref =~ /[\x80-\xff]/) {
-    $attr{encoding} ||= 'quoted-printable';
-    $attr{charset}  ||= 'utf-8';
+    if ($attr{content_type} =~ m{^text/}) {
+      $attr{encoding} ||= 'quoted-printable';
+      $attr{charset}  ||= 'utf-8'
+    } else {
+      $attr{encoding} ||= 'base64';
+    }
   }
 
   my $email = $self->_contain_attachments({
@@ -245,10 +250,6 @@ sub _prep_header {
       $value = ${ $renderer->render(\$value, $stash) } if defined $renderer;
     }
 
-    {
-      use bytes;
-      $value = Encode::encode('MIME-Q', $value) if $value =~ /[\x80-\xff]/;
-    }
     push @done_header, $hval[0] => $value;
   }
 
@@ -268,7 +269,7 @@ sub _contain_attachments {
 
     return Email::MIME->create(
       attributes => $arg->{attributes},
-      header     => $header,
+      header_str => $header,
       body       => $arg->{body},
       parts      => $arg->{parts},
     );
@@ -284,7 +285,7 @@ sub _contain_attachments {
 
   my $container = Email::MIME->create(
     attributes => { content_type => ($ct || 'multipart/mixed') },
-    header     => $header,
+    header_str => $header,
     parts      => [ $email, @att_parts ],
   );
 
@@ -333,7 +334,6 @@ no Moose;
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -342,7 +342,7 @@ Email::MIME::Kit::Assembler::Standard - the standard kit assembler
 
 =head1 VERSION
 
-version 2.091920
+version 2.093070
 
 =head1 AUTHOR
 
@@ -353,8 +353,7 @@ version 2.091920
 This software is copyright (c) 2009 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
-the same terms as perl itself.
+the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

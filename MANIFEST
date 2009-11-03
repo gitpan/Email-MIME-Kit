@@ -35,5 +35,7 @@ t/lib/Email/MIME/Kit/Assembler/Borg.pm
 t/lib/Email/MIME/Kit/ConstKit.pm
 t/lib/Email/MIME/Kit/Validator/Simplest.pm
 t/read-json-manifest.t
+t/release-pod-coverage.t
+t/release-pod-syntax.t
 t/single.t
 t/test-renderer.t
