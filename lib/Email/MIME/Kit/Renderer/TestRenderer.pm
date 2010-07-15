@@ -1,7 +1,7 @@
 package Email::MIME::Kit::Renderer::TestRenderer;
-our $VERSION = '2.093070';
-
-
+BEGIN {
+  $Email::MIME::Kit::Renderer::TestRenderer::VERSION = '2.101960';
+}
 use Moose;
 with 'Email::MIME::Kit::Role::Renderer';
 # ABSTRACT:  extremely simple renderer for testing purposes only
@@ -35,7 +35,7 @@ Email::MIME::Kit::Renderer::TestRenderer - extremely simple renderer for testing
 
 =head1 VERSION
 
-version 2.093070
+version 2.101960
 
 =head1 DESCRIPTION
 
@@ -71,11 +71,11 @@ upset by something horrible soon.
 
 =head1 AUTHOR
 
-  Ricardo Signes <rjbs@cpan.org>
+Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Ricardo Signes.
+This software is copyright (c) 2010 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

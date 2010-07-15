@@ -1,7 +1,7 @@
 package Email::MIME::Kit::Assembler::Standard;
-our $VERSION = '2.093070';
-
-
+BEGIN {
+  $Email::MIME::Kit::Assembler::Standard::VERSION = '2.101960';
+}
 use Moose;
 use Moose::Util::TypeConstraints;
 # ABSTRACT: the standard kit assembler
@@ -321,11 +321,11 @@ sub _setup_content_ids {
 
     my $cid = $self->kit->_generate_content_id;
     push @{ $att->{header} }, {
-      'Content-Id' => "<$cid>",
+      'Content-Id' => $cid->in_brackets,
       ':renderer'  => undef,
     };
 
-    $self->_cid_registry->{ $att->{path} } = $cid;
+    $self->_cid_registry->{ $att->{path} } = $cid->as_string;
   }
 }
 
@@ -342,15 +342,15 @@ Email::MIME::Kit::Assembler::Standard - the standard kit assembler
 
 =head1 VERSION
 
-version 2.093070
+version 2.101960
 
 =head1 AUTHOR
 
-  Ricardo Signes <rjbs@cpan.org>
+Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Ricardo Signes.
+This software is copyright (c) 2010 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

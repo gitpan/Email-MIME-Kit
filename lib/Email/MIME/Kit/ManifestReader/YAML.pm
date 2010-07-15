@@ -1,7 +1,7 @@
 package Email::MIME::Kit::ManifestReader::YAML;
-our $VERSION = '2.093070';
-
-
+BEGIN {
+  $Email::MIME::Kit::ManifestReader::YAML::VERSION = '2.101960';
+}
 use Moose;
 # ABSTRACT: read manifest.yaml files
 
@@ -32,15 +32,15 @@ Email::MIME::Kit::ManifestReader::YAML - read manifest.yaml files
 
 =head1 VERSION
 
-version 2.093070
+version 2.101960
 
 =head1 AUTHOR
 
-  Ricardo Signes <rjbs@cpan.org>
+Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Ricardo Signes.
+This software is copyright (c) 2010 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
