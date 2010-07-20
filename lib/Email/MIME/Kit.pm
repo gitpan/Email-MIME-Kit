@@ -1,6 +1,6 @@
 package Email::MIME::Kit;
 BEGIN {
-  $Email::MIME::Kit::VERSION = '2.101960';
+  $Email::MIME::Kit::VERSION = '2.102010';
 }
 require 5.008;
 use Moose;
@@ -175,7 +175,7 @@ Email::MIME::Kit - build messages from templates
 
 =head1 VERSION
 
-version 2.101960
+version 2.102010
 
 =head1 SYNOPSIS
 
@@ -242,15 +242,6 @@ here is Template-Toolkit.
 
 The message would be assembled and returned as an Email::MIME object, just as
 easily as suggested in the L</SYNOPSIS> above.
-
-=head1 WARNING
-
-B<Achtung!>  Even though this is marked a version 2.000, it is not a stable,
-well-proven interface.  It is a complete rewrite of a version-1 product that
-was used only internally.  You may want to wait for this warning to go away
-before relying on this code in your production environment.
-
-  -- rjbs, 2009-01-24
 
 =head1 PERL EMAIL PROJECT
 

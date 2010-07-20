@@ -1,6 +1,6 @@
 package Email::MIME::Kit::Role::ManifestDesugarer;
 BEGIN {
-  $Email::MIME::Kit::Role::ManifestDesugarer::VERSION = '2.101960';
+  $Email::MIME::Kit::Role::ManifestDesugarer::VERSION = '2.102010';
 }
 use Moose::Role;
 # ABSTRACT: helper for desugaring manifests
@@ -46,7 +46,7 @@ Email::MIME::Kit::Role::ManifestDesugarer - helper for desugaring manifests
 
 =head1 VERSION
 
-version 2.101960
+version 2.102010
 
 =head1 IMPLEMENTING
 

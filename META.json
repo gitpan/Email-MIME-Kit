@@ -52,7 +52,7 @@
          "url" : "git://git.codesimply.com/Email-MIME-Kit.git"
       }
    },
-   "version" : "2.101960",
+   "version" : "2.102010",
    "x_Dist_Zilla" : {
       "plugins" : [
          {

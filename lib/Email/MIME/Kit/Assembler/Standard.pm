@@ -1,10 +1,11 @@
 package Email::MIME::Kit::Assembler::Standard;
 BEGIN {
-  $Email::MIME::Kit::Assembler::Standard::VERSION = '2.101960';
+  $Email::MIME::Kit::Assembler::Standard::VERSION = '2.102010';
 }
 use Moose;
 use Moose::Util::TypeConstraints;
 # ABSTRACT: the standard kit assembler
+
 
 with 'Email::MIME::Kit::Role::Assembler';
 
@@ -114,7 +115,7 @@ sub _assemble_mp_alt {
     confess "illegal content_type for mail with alts: $attr{content_type}";
   }
 
-  my $parts = [ map { $_->assemble($stash) } $self->_alternatives ];
+  my $parts = [ map { $_->assemble($stash) } @{ $self->_alternatives } ];
 
   my $email = $self->_contain_attachments({
     attributes => \%attr,
@@ -170,7 +171,6 @@ has [ qw(_attachments _alternatives) ] => (
   isa => 'ArrayRef',
   init_arg   => undef,
   default    => sub { [] },
-  auto_deref => 1,
 );
 
 has _body => (
@@ -259,7 +259,7 @@ sub _prep_header {
 sub _contain_attachments {
   my ($self, $arg) = @_;
   
-  my @attachments = $self->_attachments;
+  my @attachments = @{ $self->_attachments };
   my $header = $self->_prep_header($arg->{header}, $arg->{stash});
 
   my $ct = $arg->{container_type};
@@ -342,7 +342,17 @@ Email::MIME::Kit::Assembler::Standard - the standard kit assembler
 
 =head1 VERSION
 
-version 2.101960
+version 2.102010
+
+=head1 WARNING
+
+Email::MIME::Kit::Assembler::Standard works well, but is poorly decomposed,
+internally.  Its methods may change substantially in the future, so relying on
+it as a base class is a bad idea.
+
+Because I<being able to> rely on it would be so useful, its behaviors will in
+the future be more reliable or factored out into roles.  Until then, be
+careful.
 
 =head1 AUTHOR
 
