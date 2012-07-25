@@ -1,6 +1,6 @@
 package Email::MIME::Kit::Role::Validator;
-BEGIN {
-  $Email::MIME::Kit::Role::Validator::VERSION = '2.102010';
+{
+  $Email::MIME::Kit::Role::Validator::VERSION = '2.102011';
 }
 use Moose::Role;
 # ABSTRACT: things that validate assembly parameters
@@ -22,7 +22,7 @@ Email::MIME::Kit::Role::Validator - things that validate assembly parameters
 
 =head1 VERSION
 
-version 2.102010
+version 2.102011
 
 =head1 IMPLEMENTING
 
@@ -40,7 +40,7 @@ Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Ricardo Signes.
+This software is copyright (c) 2012 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

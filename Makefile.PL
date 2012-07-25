@@ -2,45 +2,49 @@
 use strict;
 use warnings;
 
-BEGIN { require 5.008; }
+use 5.008;
 
-use ExtUtils::MakeMaker 6.31;
+use ExtUtils::MakeMaker 6.30;
 
 
 
 my %WriteMakefileArgs = (
-  'ABSTRACT' => 'build messages from templates',
-  'AUTHOR' => 'Ricardo Signes <rjbs@cpan.org>',
-  'BUILD_REQUIRES' => {
-    'Test::Deep' => '0',
-    'Test::More' => '0',
-    'utf8' => '0'
+  "ABSTRACT" => "build messages from templates",
+  "AUTHOR" => "Ricardo Signes <rjbs\@cpan.org>",
+  "BUILD_REQUIRES" => {
+    "File::Find" => 0,
+    "File::Temp" => 0,
+    "Test::Deep" => 0,
+    "Test::More" => "0.96",
+    "strict" => 0,
+    "utf8" => 0,
+    "warnings" => 0
   },
-  'CONFIGURE_REQUIRES' => {
-    'ExtUtils::MakeMaker' => '6.31'
+  "CONFIGURE_REQUIRES" => {
+    "ExtUtils::MakeMaker" => "6.30"
   },
-  'DISTNAME' => 'Email-MIME-Kit',
-  'EXE_FILES' => [],
-  'LICENSE' => 'perl',
-  'NAME' => 'Email::MIME::Kit',
-  'PREREQ_PM' => {
-    'Email::MIME' => '1.900',
-    'Email::MIME::Creator' => '0',
-    'Email::MessageID' => '1.400',
-    'Encode' => '0',
-    'File::Basename' => '0',
-    'File::Spec' => '0',
-    'JSON' => '2',
-    'Moose' => '0.65',
-    'Moose::Role' => '0',
-    'Moose::Util::TypeConstraints' => '0',
-    'String::RewritePrefix' => '0',
-    'Test::Deep' => '0',
-    'YAML::XS' => '0'
+  "DISTNAME" => "Email-MIME-Kit",
+  "EXE_FILES" => [],
+  "LICENSE" => "perl",
+  "NAME" => "Email::MIME::Kit",
+  "PREREQ_PM" => {
+    "Email::MIME" => "1.900",
+    "Email::MIME::Creator" => 0,
+    "Email::MessageID" => "1.400",
+    "Encode" => 0,
+    "File::Basename" => 0,
+    "File::Spec" => 0,
+    "JSON" => 2,
+    "Moose" => "0.65",
+    "Moose::Role" => 0,
+    "Moose::Util::TypeConstraints" => 0,
+    "String::RewritePrefix" => 0,
+    "Test::Deep" => 0,
+    "YAML::XS" => 0
   },
-  'VERSION' => '2.102010',
-  'test' => {
-    'TESTS' => 't/*.t'
+  "VERSION" => "2.102011",
+  "test" => {
+    "TESTS" => "t/*.t"
   }
 );
 

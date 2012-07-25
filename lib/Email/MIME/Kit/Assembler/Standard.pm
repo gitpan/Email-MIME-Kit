@@ -1,6 +1,6 @@
 package Email::MIME::Kit::Assembler::Standard;
-BEGIN {
-  $Email::MIME::Kit::Assembler::Standard::VERSION = '2.102010';
+{
+  $Email::MIME::Kit::Assembler::Standard::VERSION = '2.102011';
 }
 use Moose;
 use Moose::Util::TypeConstraints;
@@ -342,7 +342,7 @@ Email::MIME::Kit::Assembler::Standard - the standard kit assembler
 
 =head1 VERSION
 
-version 2.102010
+version 2.102011
 
 =head1 WARNING
 
@@ -360,7 +360,7 @@ Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Ricardo Signes.
+This software is copyright (c) 2012 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

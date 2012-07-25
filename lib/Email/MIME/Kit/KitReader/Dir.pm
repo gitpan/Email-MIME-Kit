@@ -1,6 +1,6 @@
 package Email::MIME::Kit::KitReader::Dir;
-BEGIN {
-  $Email::MIME::Kit::KitReader::Dir::VERSION = '2.102010';
+{
+  $Email::MIME::Kit::KitReader::Dir::VERSION = '2.102011';
 }
 use Moose;
 with 'Email::MIME::Kit::Role::KitReader';
@@ -31,7 +31,7 @@ Email::MIME::Kit::KitReader::Dir - read kit entries out of a directory
 
 =head1 VERSION
 
-version 2.102010
+version 2.102011
 
 =head1 AUTHOR
 
@@ -39,7 +39,7 @@ Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Ricardo Signes.
+This software is copyright (c) 2012 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
