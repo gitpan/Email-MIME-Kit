@@ -1,6 +1,6 @@
 package Email::MIME::Kit;
 {
-  $Email::MIME::Kit::VERSION = '2.102011';
+  $Email::MIME::Kit::VERSION = '2.102012';
 }
 require 5.008;
 use Moose;
@@ -167,6 +167,7 @@ no Moose;
 1;
 
 __END__
+
 =pod
 
 =head1 NAME
@@ -175,7 +176,7 @@ Email::MIME::Kit - build messages from templates
 
 =head1 VERSION
 
-version 2.102011
+version 2.102012
 
 =head1 SYNOPSIS
 
@@ -262,10 +263,9 @@ Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Ricardo Signes.
+This software is copyright (c) 2013 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
