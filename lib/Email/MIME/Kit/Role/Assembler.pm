@@ -1,6 +1,6 @@
 package Email::MIME::Kit::Role::Assembler;
 {
-  $Email::MIME::Kit::Role::Assembler::VERSION = '2.102012';
+  $Email::MIME::Kit::Role::Assembler::VERSION = '2.102013';
 }
 use Moose::Role;
 with 'Email::MIME::Kit::Role::Component';
@@ -22,7 +22,7 @@ Email::MIME::Kit::Role::Assembler - things that assemble messages (or parts)
 
 =head1 VERSION
 
-version 2.102012
+version 2.102013
 
 =head1 IMPLEMENTING
 

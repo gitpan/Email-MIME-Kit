@@ -1,6 +1,6 @@
 package Email::MIME::Kit;
 {
-  $Email::MIME::Kit::VERSION = '2.102012';
+  $Email::MIME::Kit::VERSION = '2.102013';
 }
 require 5.008;
 use Moose;
@@ -176,7 +176,7 @@ Email::MIME::Kit - build messages from templates
 
 =head1 VERSION
 
-version 2.102012
+version 2.102013
 
 =head1 SYNOPSIS
 

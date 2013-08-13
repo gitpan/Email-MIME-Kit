@@ -1,6 +1,6 @@
 package Email::MIME::Kit::Assembler::Standard;
 {
-  $Email::MIME::Kit::Assembler::Standard::VERSION = '2.102012';
+  $Email::MIME::Kit::Assembler::Standard::VERSION = '2.102013';
 }
 use Moose;
 use Moose::Util::TypeConstraints;
@@ -127,7 +127,7 @@ sub _assemble_mp_alt {
 
 sub _renderer_from_override {
   my ($self, $override) = @_;
-  
+
   # Allow an explicit undef to mean "no rendering is to be done." -- rjbs,
   # 2009-01-19
   return undef unless defined $override;
@@ -180,14 +180,15 @@ has _body => (
 
 sub _build_subassemblies {
   my ($self) = @_;
-  
+
   if (my $body = $self->manifest->{body}) {
     $self->_set_body($body);
   }
 
   for my $attach (@{ $self->manifest->{attachments} || [] }) {
     my $assembler = $self->kit->_assembler_from_manifest($attach, $self);
-    $assembler->_set_attachment_info($attach);
+    $assembler->_set_attachment_info($attach)
+      if $assembler->can('_set_attachment_info');
     push @{ $self->_attachments }, $assembler;
   }
 
@@ -258,7 +259,7 @@ sub _prep_header {
 
 sub _contain_attachments {
   my ($self, $arg) = @_;
-  
+
   my @attachments = @{ $self->_attachments };
   my $header = $self->_prep_header($arg->{header}, $arg->{stash});
 
@@ -343,7 +344,7 @@ Email::MIME::Kit::Assembler::Standard - the standard kit assembler
 
 =head1 VERSION
 
-version 2.102012
+version 2.102013
 
 =head1 WARNING
 

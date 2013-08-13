@@ -1,6 +1,6 @@
 package Email::MIME::Kit::ManifestReader::JSON;
 {
-  $Email::MIME::Kit::ManifestReader::JSON::VERSION = '2.102012';
+  $Email::MIME::Kit::ManifestReader::JSON::VERSION = '2.102013';
 }
 use Moose;
 # ABSTRACT: read manifest.json files
@@ -31,7 +31,7 @@ Email::MIME::Kit::ManifestReader::JSON - read manifest.json files
 
 =head1 VERSION
 
-version 2.102012
+version 2.102013
 
 =head1 AUTHOR
 
