@@ -1,16 +1,81 @@
 package Email::MIME::Kit;
-{
-  $Email::MIME::Kit::VERSION = '2.102013';
-}
+# ABSTRACT: build messages from templates
+$Email::MIME::Kit::VERSION = '2.102014';
 require 5.008;
 use Moose;
 use Moose::Util::TypeConstraints;
-# ABSTRACT: build messages from templates
 
 use Email::MIME;
 use Email::MessageID;
 use String::RewritePrefix;
 
+#pod =head1 SYNOPSIS
+#pod
+#pod   use Email::MIME::Kit;
+#pod
+#pod   my $kit = Email::MIME::Kit->new({ source => 'mkits/sample.mkit' });
+#pod
+#pod   my $email = $kit->assemble({
+#pod     account           => $new_signup,
+#pod     verification_code => $token,
+#pod     ... and any other template vars ...
+#pod   });
+#pod
+#pod   $transport->send($email, { ... });
+#pod
+#pod =head1 DESCRIPTION
+#pod
+#pod Email::MIME::Kit is a templating system for email messages.  Instead of trying
+#pod to be yet another templating system for chunks of text, it makes it easy to
+#pod build complete email messages.
+#pod
+#pod It handles the construction of multipart messages, text and HTML alternatives,
+#pod attachments, interpart linking, string encoding, and parameter validation.
+#pod
+#pod Although nearly every part of Email::MIME::Kit is a replaceable component, the
+#pod stock configuration is probably enough for most use.  A message kit will be
+#pod stored as a directory that might look like this:
+#pod
+#pod   sample.mkit/
+#pod     manifest.json
+#pod     body.txt
+#pod     body.html
+#pod     logo.jpg
+#pod
+#pod The manifest file tells Email::MIME::Kit how to put it all together, and might
+#pod look something like this:
+#pod
+#pod   {
+#pod     "renderer": "TT",
+#pod     "header": [
+#pod       { "From": "WY Corp <noreplies@wy.example.com>" },
+#pod       { "Subject": "Welcome aboard, [% recruit.name %]!" }
+#pod     ],
+#pod     "alternatives": [
+#pod       { "type": "text/plain", "path": "body.txt" },
+#pod       {
+#pod         "type": "text/html",
+#pod         "path": "body.html",
+#pod         "container_type": "multipart/related",
+#pod         "attachments": [ { "type": "image/jpeg", "path": "logo.jpg" } ]
+#pod       }
+#pod     ]
+#pod   }
+#pod
+#pod B<Please note:> the assembly of HTML documents as multipart/related bodies will
+#pod probably be simplified with an alternate assembler in the near future.
+#pod
+#pod The above manifest would build a multipart alternative message.  GUI mail
+#pod clients would see a rendered HTML document with the logo graphic visible from
+#pod the attachment.  Text mail clients would see the plaintext.
+#pod
+#pod Both the HTML and text parts would be rendered using the named renderer, which
+#pod here is Template-Toolkit.
+#pod
+#pod The message would be assembled and returned as an Email::MIME object, just as
+#pod easily as suggested in the L</SYNOPSIS> above.
+#pod
+#pod =cut
 
 has source => (is => 'ro', required => 1);
 
@@ -161,6 +226,20 @@ sub _generate_content_id {
   Email::MessageID->new;
 }
 
+#pod =head1 PERL EMAIL PROJECT
+#pod
+#pod This module is maintained by the Perl Email Project
+#pod
+#pod L<http://emailproject.perl.org/wiki/Email::MIME::Kit>
+#pod
+#pod =head1 AUTHOR
+#pod
+#pod This code was written in 2009 by Ricardo SIGNES.  It was based on a previous
+#pod implementation by Hans Dieter Pearcey written in 2006.
+#pod
+#pod The development of this code was sponsored by Pobox.com.  Thanks, Pobox!
+#pod
+#pod =cut
 
 no Moose::Util::TypeConstraints;
 no Moose;
@@ -170,13 +249,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Email::MIME::Kit - build messages from templates
 
 =head1 VERSION
 
-version 2.102013
+version 2.102014
 
 =head1 SYNOPSIS
 
@@ -263,7 +344,7 @@ Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Ricardo Signes.
+This software is copyright (c) 2014 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

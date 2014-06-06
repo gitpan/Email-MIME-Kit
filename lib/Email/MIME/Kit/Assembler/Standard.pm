@@ -1,11 +1,20 @@
 package Email::MIME::Kit::Assembler::Standard;
-{
-  $Email::MIME::Kit::Assembler::Standard::VERSION = '2.102013';
-}
+# ABSTRACT: the standard kit assembler
+$Email::MIME::Kit::Assembler::Standard::VERSION = '2.102014';
 use Moose;
 use Moose::Util::TypeConstraints;
-# ABSTRACT: the standard kit assembler
 
+#pod =head1 WARNING
+#pod
+#pod Email::MIME::Kit::Assembler::Standard works well, but is poorly decomposed,
+#pod internally.  Its methods may change substantially in the future, so relying on
+#pod it as a base class is a bad idea.
+#pod
+#pod Because I<being able to> rely on it would be so useful, its behaviors will in
+#pod the future be more reliable or factored out into roles.  Until then, be
+#pod careful.
+#pod
+#pod =cut
 
 with 'Email::MIME::Kit::Role::Assembler';
 
@@ -23,6 +32,7 @@ sub BUILD {
 has parent => (
   is  => 'ro',
   isa => maybe_type(role_type('Email::MIME::Kit::Role::Assembler')),
+  weak_ref => 1,
 );
 
 has renderer => (
@@ -338,13 +348,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Email::MIME::Kit::Assembler::Standard - the standard kit assembler
 
 =head1 VERSION
 
-version 2.102013
+version 2.102014
 
 =head1 WARNING
 
@@ -362,7 +374,7 @@ Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Ricardo Signes.
+This software is copyright (c) 2014 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

@@ -1,10 +1,15 @@
 package Email::MIME::Kit::Role::Component;
-{
-  $Email::MIME::Kit::Role::Component::VERSION = '2.102013';
-}
-use Moose::Role;
 # ABSTRACT: things that are kit components
+$Email::MIME::Kit::Role::Component::VERSION = '2.102014';
+use Moose::Role;
 
+#pod =head1 DESCRIPTION
+#pod
+#pod All (or most, anyway) components of an Email::MIME::Kit will perform this role.
+#pod Its primary function is to provide a C<kit> attribute that refers back to the
+#pod Email::MIME::Kit into which the component was installed.
+#pod
+#pod =cut
 
 has kit => (
   is  => 'ro',
@@ -20,13 +25,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Email::MIME::Kit::Role::Component - things that are kit components
 
 =head1 VERSION
 
-version 2.102013
+version 2.102014
 
 =head1 DESCRIPTION
 
@@ -40,7 +47,7 @@ Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Ricardo Signes.
+This software is copyright (c) 2014 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
