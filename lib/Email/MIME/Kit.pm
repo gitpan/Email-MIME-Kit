@@ -1,6 +1,6 @@
 package Email::MIME::Kit;
 # ABSTRACT: build messages from templates
-$Email::MIME::Kit::VERSION = '2.102014';
+$Email::MIME::Kit::VERSION = '2.102015';
 require 5.008;
 use Moose;
 use Moose::Util::TypeConstraints;
@@ -226,12 +226,6 @@ sub _generate_content_id {
   Email::MessageID->new;
 }
 
-#pod =head1 PERL EMAIL PROJECT
-#pod
-#pod This module is maintained by the Perl Email Project
-#pod
-#pod L<http://emailproject.perl.org/wiki/Email::MIME::Kit>
-#pod
 #pod =head1 AUTHOR
 #pod
 #pod This code was written in 2009 by Ricardo SIGNES.  It was based on a previous
@@ -257,7 +251,7 @@ Email::MIME::Kit - build messages from templates
 
 =head1 VERSION
 
-version 2.102014
+version 2.102015
 
 =head1 SYNOPSIS
 
@@ -324,12 +318,6 @@ here is Template-Toolkit.
 
 The message would be assembled and returned as an Email::MIME object, just as
 easily as suggested in the L</SYNOPSIS> above.
-
-=head1 PERL EMAIL PROJECT
-
-This module is maintained by the Perl Email Project
-
-L<http://emailproject.perl.org/wiki/Email::MIME::Kit>
 
 =head1 AUTHOR
 

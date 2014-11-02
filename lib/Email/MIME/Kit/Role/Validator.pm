@@ -1,6 +1,6 @@
 package Email::MIME::Kit::Role::Validator;
 # ABSTRACT: things that validate assembly parameters
-$Email::MIME::Kit::Role::Validator::VERSION = '2.102014';
+$Email::MIME::Kit::Role::Validator::VERSION = '2.102015';
 use Moose::Role;
 
 #pod =head1 IMPLEMENTING
@@ -34,7 +34,7 @@ Email::MIME::Kit::Role::Validator - things that validate assembly parameters
 
 =head1 VERSION
 
-version 2.102014
+version 2.102015
 
 =head1 IMPLEMENTING
 

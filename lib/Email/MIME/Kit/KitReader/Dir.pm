@@ -1,6 +1,6 @@
 package Email::MIME::Kit::KitReader::Dir;
 # ABSTRACT: read kit entries out of a directory
-$Email::MIME::Kit::KitReader::Dir::VERSION = '2.102014';
+$Email::MIME::Kit::KitReader::Dir::VERSION = '2.102015';
 use Moose;
 with 'Email::MIME::Kit::Role::KitReader';
 
@@ -12,7 +12,8 @@ sub get_kit_entry {
 
   my $fullpath = File::Spec->catfile($self->kit->source, $path);
 
-  open my $fh, '<', $fullpath or die "can't open $fullpath for reading: $!";
+  open my $fh, '<:raw', $fullpath
+    or die "can't open $fullpath for reading: $!";
   my $content = do { local $/; <$fh> };
 
   return \$content;
@@ -32,7 +33,7 @@ Email::MIME::Kit::KitReader::Dir - read kit entries out of a directory
 
 =head1 VERSION
 
-version 2.102014
+version 2.102015
 
 =head1 AUTHOR
 

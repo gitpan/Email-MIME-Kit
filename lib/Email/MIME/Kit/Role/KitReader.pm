@@ -1,6 +1,6 @@
 package Email::MIME::Kit::Role::KitReader;
 # ABSTRACT: things that can read kit contents
-$Email::MIME::Kit::Role::KitReader::VERSION = '2.102014';
+$Email::MIME::Kit::Role::KitReader::VERSION = '2.102015';
 use Moose::Role;
 with 'Email::MIME::Kit::Role::Component';
 
@@ -32,7 +32,7 @@ Email::MIME::Kit::Role::KitReader - things that can read kit contents
 
 =head1 VERSION
 
-version 2.102014
+version 2.102015
 
 =head1 IMPLEMENTING
 
