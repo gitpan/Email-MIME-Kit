@@ -1,6 +1,6 @@
 package Email::MIME::Kit::Role::ManifestReader;
 # ABSTRACT: things that read kit manifests
-$Email::MIME::Kit::Role::ManifestReader::VERSION = '2.102015';
+$Email::MIME::Kit::Role::ManifestReader::VERSION = '3.000000'; # TRIAL
 use Moose::Role;
 with 'Email::MIME::Kit::Role::Component';
 
@@ -31,7 +31,7 @@ Email::MIME::Kit::Role::ManifestReader - things that read kit manifests
 
 =head1 VERSION
 
-version 2.102015
+version 3.000000
 
 =head1 IMPLEMENTING
 

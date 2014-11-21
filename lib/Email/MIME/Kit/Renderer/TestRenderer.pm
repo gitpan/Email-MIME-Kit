@@ -1,6 +1,6 @@
 package Email::MIME::Kit::Renderer::TestRenderer;
 # ABSTRACT:  extremely simple renderer for testing purposes only
-$Email::MIME::Kit::Renderer::TestRenderer::VERSION = '2.102015';
+$Email::MIME::Kit::Renderer::TestRenderer::VERSION = '3.000000'; # TRIAL
 use Moose;
 with 'Email::MIME::Kit::Role::Renderer';
 
@@ -69,7 +69,7 @@ Email::MIME::Kit::Renderer::TestRenderer - extremely simple renderer for testing
 
 =head1 VERSION
 
-version 2.102015
+version 3.000000
 
 =head1 DESCRIPTION
 

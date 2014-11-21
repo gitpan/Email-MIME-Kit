@@ -1,6 +1,6 @@
 package Email::MIME::Kit;
 # ABSTRACT: build messages from templates
-$Email::MIME::Kit::VERSION = '2.102015';
+$Email::MIME::Kit::VERSION = '3.000000'; # TRIAL
 require 5.008;
 use Moose;
 use Moose::Util::TypeConstraints;
@@ -62,8 +62,8 @@ use String::RewritePrefix;
 #pod     ]
 #pod   }
 #pod
-#pod B<Please note:> the assembly of HTML documents as multipart/related bodies will
-#pod probably be simplified with an alternate assembler in the near future.
+#pod B<Please note:> the assembly of HTML documents as multipart/related bodies may
+#pod be simplified with an alternate assembler in the future.
 #pod
 #pod The above manifest would build a multipart alternative message.  GUI mail
 #pod clients would see a rendered HTML document with the logo graphic visible from
@@ -75,6 +75,39 @@ use String::RewritePrefix;
 #pod The message would be assembled and returned as an Email::MIME object, just as
 #pod easily as suggested in the L</SYNOPSIS> above.
 #pod
+#pod =head1 ENCODING ISSUES
+#pod
+#pod In general, "it should all just work" ... starting in version v3.
+#pod
+#pod Email::MIME::Kit assumes that any file read for the purpose of becoming a
+#pod C<text/*>-type part is encoded in UTF-8.  It will decode them and work with
+#pod their contents as text strings.  Renderers will be passed text strings to
+#pod render, and so on.  This, further, means that strings passed to the C<assemble>
+#pod method for use in rendering should also be text strings.
+#pod
+#pod In older versions of Email::MIME::Kit, files read from disk were read in raw
+#pod mode and then handled as octet strings.  Meanwhile, the manifest's contents
+#pod (and, thus, any templates stored as strings in the manifest) were decoded into
+#pod text strings.  This could lead to serious problems.  For example: the
+#pod F<manifest.json> file might contain:
+#pod
+#pod   "header": [
+#pod     { "Subject": "Message for [% customer_name %]" },
+#pod     ...
+#pod   ]
+#pod
+#pod ...while a template on disk might contain:
+#pod
+#pod   Dear [% customer_name %],
+#pod   ...
+#pod
+#pod If the customer's name isn't ASCII, there was no right way to pass it in.  The
+#pod template on disk would expect UTF-8, but the template in the manifest would
+#pod expect Unicode text.  Users prior to v3 may have taken strange steps to get
+#pod around this problem, understanding that some templates were treated differently
+#pod than others.  This means that some review of kits is in order when upgrading
+#pod from earlier versions of Email::MIME::Kit.
+#pod
 #pod =cut
 
 has source => (is => 'ro', required => 1);
@@ -82,8 +115,9 @@ has source => (is => 'ro', required => 1);
 has manifest => (reader => 'manifest', writer => '_set_manifest');
 
 my @auto_attrs = (
-  [ manifest_reader => ManifestReader => JSON => 'read_manifest' ],
-  [ kit_reader      => KitReader      => Dir  => 'get_kit_entry' ],
+  [ manifest_reader => ManifestReader => JSON => [ 'read_manifest' ] ],
+  [ kit_reader      => KitReader      => Dir  => [ 'get_kit_entry',
+                                                   'get_decoded_kit_entry' ] ],
 );
 
 for my $attr (@auto_attrs) {
@@ -106,7 +140,7 @@ for my $attr (@auto_attrs) {
 
       $set->($comp);
     },
-    handles => [ $attr->[3] ],
+    handles => $attr->[3],
   );
 }
 
@@ -251,7 +285,7 @@ Email::MIME::Kit - build messages from templates
 
 =head1 VERSION
 
-version 2.102015
+version 3.000000
 
 =head1 SYNOPSIS
 
@@ -306,8 +340,8 @@ look something like this:
     ]
   }
 
-B<Please note:> the assembly of HTML documents as multipart/related bodies will
-probably be simplified with an alternate assembler in the near future.
+B<Please note:> the assembly of HTML documents as multipart/related bodies may
+be simplified with an alternate assembler in the future.
 
 The above manifest would build a multipart alternative message.  GUI mail
 clients would see a rendered HTML document with the logo graphic visible from
@@ -318,6 +352,39 @@ here is Template-Toolkit.
 
 The message would be assembled and returned as an Email::MIME object, just as
 easily as suggested in the L</SYNOPSIS> above.
+
+=head1 ENCODING ISSUES
+
+In general, "it should all just work" ... starting in version v3.
+
+Email::MIME::Kit assumes that any file read for the purpose of becoming a
+C<text/*>-type part is encoded in UTF-8.  It will decode them and work with
+their contents as text strings.  Renderers will be passed text strings to
+render, and so on.  This, further, means that strings passed to the C<assemble>
+method for use in rendering should also be text strings.
+
+In older versions of Email::MIME::Kit, files read from disk were read in raw
+mode and then handled as octet strings.  Meanwhile, the manifest's contents
+(and, thus, any templates stored as strings in the manifest) were decoded into
+text strings.  This could lead to serious problems.  For example: the
+F<manifest.json> file might contain:
+
+  "header": [
+    { "Subject": "Message for [% customer_name %]" },
+    ...
+  ]
+
+...while a template on disk might contain:
+
+  Dear [% customer_name %],
+  ...
+
+If the customer's name isn't ASCII, there was no right way to pass it in.  The
+template on disk would expect UTF-8, but the template in the manifest would
+expect Unicode text.  Users prior to v3 may have taken strange steps to get
+around this problem, understanding that some templates were treated differently
+than others.  This means that some review of kits is in order when upgrading
+from earlier versions of Email::MIME::Kit.
 
 =head1 AUTHOR
 

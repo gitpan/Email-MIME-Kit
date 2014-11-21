@@ -1,6 +1,6 @@
 package Email::MIME::Kit::ManifestReader::JSON;
 # ABSTRACT: read manifest.json files
-$Email::MIME::Kit::ManifestReader::JSON::VERSION = '2.102015';
+$Email::MIME::Kit::ManifestReader::JSON::VERSION = '3.000000'; # TRIAL
 use Moose;
 
 with 'Email::MIME::Kit::Role::ManifestReader';
@@ -13,6 +13,8 @@ sub read_manifest {
 
   my $json_ref = $self->kit->kit_reader->get_kit_entry('manifest.json');
 
+  # We do not touch ->utf8 because we're reading the octets, and not decoding
+  # them. -- rjbs, 2014-11-20
   my $content = JSON->new->decode($$json_ref);
 }
 
@@ -31,7 +33,7 @@ Email::MIME::Kit::ManifestReader::JSON - read manifest.json files
 
 =head1 VERSION
 
-version 2.102015
+version 3.000000
 
 =head1 AUTHOR
 
