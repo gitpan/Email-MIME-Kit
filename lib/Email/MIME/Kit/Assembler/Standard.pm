@@ -1,6 +1,6 @@
 package Email::MIME::Kit::Assembler::Standard;
 # ABSTRACT: the standard kit assembler
-$Email::MIME::Kit::Assembler::Standard::VERSION = '3.000000'; # TRIAL
+$Email::MIME::Kit::Assembler::Standard::VERSION = '3.000001';
 use Moose;
 use Moose::Util::TypeConstraints;
 
@@ -364,7 +364,7 @@ Email::MIME::Kit::Assembler::Standard - the standard kit assembler
 
 =head1 VERSION
 
-version 3.000000
+version 3.000001
 
 =head1 WARNING
 

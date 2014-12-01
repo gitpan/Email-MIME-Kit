@@ -39,7 +39,7 @@ resources:
   bugtracker: https://github.com/rjbs/Email-MIME-Kit/issues
   homepage: https://github.com/rjbs/Email-MIME-Kit
   repository: https://github.com/rjbs/Email-MIME-Kit.git
-version: '3.000000'
+version: '3.000001'
 x_Dist_Zilla:
   perl:
     version: '5.021005'
@@ -68,15 +68,15 @@ x_Dist_Zilla:
         Dist::Zilla::Role::Git::Repo:
           repo_root: .
       name: '@RJBS/Git::GatherDir'
-      version: '2.025'
+      version: '2.028'
     -
       class: Dist::Zilla::Plugin::CheckPrereqsIndexed
       name: '@RJBS/CheckPrereqsIndexed'
-      version: '0.012'
+      version: '0.013'
     -
       class: Dist::Zilla::Plugin::CheckExtraTests
       name: '@RJBS/CheckExtraTests'
-      version: '0.024'
+      version: '0.025'
     -
       class: Dist::Zilla::Plugin::PromptIfStale
       config:
@@ -88,7 +88,7 @@ x_Dist_Zilla:
           phase: build
           skip: []
       name: '@RJBS/RJBS-Outdated'
-      version: '0.031'
+      version: '0.032'
     -
       class: Dist::Zilla::Plugin::PromptIfStale
       config:
@@ -99,7 +99,7 @@ x_Dist_Zilla:
           phase: release
           skip: []
       name: '@RJBS/CPAN-Outdated'
-      version: '0.031'
+      version: '0.032'
     -
       class: Dist::Zilla::Plugin::PruneCruft
       name: '@RJBS/@Filter/PruneCruft'
@@ -165,7 +165,7 @@ x_Dist_Zilla:
         Dist::Zilla::Role::Git::Repo:
           repo_root: .
       name: '@RJBS/Git::NextVersion'
-      version: '2.025'
+      version: '2.028'
     -
       class: Dist::Zilla::Plugin::PkgVersion
       name: '@RJBS/PkgVersion'
@@ -304,7 +304,7 @@ x_Dist_Zilla:
         Dist::Zilla::Role::Git::Repo:
           repo_root: .
       name: '@RJBS/@Git/Check'
-      version: '2.025'
+      version: '2.028'
     -
       class: Dist::Zilla::Plugin::Git::Commit
       config:
@@ -321,21 +321,21 @@ x_Dist_Zilla:
         Dist::Zilla::Role::Git::Repo:
           repo_root: .
       name: '@RJBS/@Git/Commit'
-      version: '2.025'
+      version: '2.028'
     -
       class: Dist::Zilla::Plugin::Git::Tag
       config:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: 0
-          tag: '3.000000'
+          tag: '3.000001'
           tag_format: '%v'
           tag_message: v%v
           time_zone: local
         Dist::Zilla::Role::Git::Repo:
           repo_root: .
       name: '@RJBS/@Git/Tag'
-      version: '2.025'
+      version: '2.028'
     -
       class: Dist::Zilla::Plugin::Git::Push
       config:
@@ -347,7 +347,7 @@ x_Dist_Zilla:
         Dist::Zilla::Role::Git::Repo:
           repo_root: .
       name: '@RJBS/@Git/Push'
-      version: '2.025'
+      version: '2.028'
     -
       class: Dist::Zilla::Plugin::Encoding
       name: Encoding
@@ -387,5 +387,5 @@ x_Dist_Zilla:
   zilla:
     class: Dist::Zilla::Dist::Builder
     config:
-      is_trial: '1'
+      is_trial: '0'
     version: '5.025'

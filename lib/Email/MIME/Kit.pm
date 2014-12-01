@@ -1,6 +1,6 @@
 package Email::MIME::Kit;
 # ABSTRACT: build messages from templates
-$Email::MIME::Kit::VERSION = '3.000000'; # TRIAL
+$Email::MIME::Kit::VERSION = '3.000001';
 require 5.008;
 use Moose;
 use Moose::Util::TypeConstraints;
@@ -285,7 +285,7 @@ Email::MIME::Kit - build messages from templates
 
 =head1 VERSION
 
-version 3.000000
+version 3.000001
 
 =head1 SYNOPSIS
 

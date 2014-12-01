@@ -58,7 +58,7 @@
          }
       }
    },
-   "release_status" : "testing",
+   "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
          "web" : "https://github.com/rjbs/Email-MIME-Kit/issues"
@@ -70,7 +70,7 @@
          "web" : "https://github.com/rjbs/Email-MIME-Kit"
       }
    },
-   "version" : "3.000000",
+   "version" : "3.000001",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.021005"
@@ -107,17 +107,17 @@
                }
             },
             "name" : "@RJBS/Git::GatherDir",
-            "version" : "2.025"
+            "version" : "2.028"
          },
          {
             "class" : "Dist::Zilla::Plugin::CheckPrereqsIndexed",
             "name" : "@RJBS/CheckPrereqsIndexed",
-            "version" : "0.012"
+            "version" : "0.013"
          },
          {
             "class" : "Dist::Zilla::Plugin::CheckExtraTests",
             "name" : "@RJBS/CheckExtraTests",
-            "version" : "0.024"
+            "version" : "0.025"
          },
          {
             "class" : "Dist::Zilla::Plugin::PromptIfStale",
@@ -133,7 +133,7 @@
                }
             },
             "name" : "@RJBS/RJBS-Outdated",
-            "version" : "0.031"
+            "version" : "0.032"
          },
          {
             "class" : "Dist::Zilla::Plugin::PromptIfStale",
@@ -147,7 +147,7 @@
                }
             },
             "name" : "@RJBS/CPAN-Outdated",
-            "version" : "0.031"
+            "version" : "0.032"
          },
          {
             "class" : "Dist::Zilla::Plugin::PruneCruft",
@@ -232,7 +232,7 @@
                }
             },
             "name" : "@RJBS/Git::NextVersion",
-            "version" : "2.025"
+            "version" : "2.028"
          },
          {
             "class" : "Dist::Zilla::Plugin::PkgVersion",
@@ -412,7 +412,7 @@
                }
             },
             "name" : "@RJBS/@Git/Check",
-            "version" : "2.025"
+            "version" : "2.028"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Commit",
@@ -435,7 +435,7 @@
                }
             },
             "name" : "@RJBS/@Git/Commit",
-            "version" : "2.025"
+            "version" : "2.028"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Tag",
@@ -443,7 +443,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : null,
                   "signed" : 0,
-                  "tag" : "3.000000",
+                  "tag" : "3.000001",
                   "tag_format" : "%v",
                   "tag_message" : "v%v",
                   "time_zone" : "local"
@@ -453,7 +453,7 @@
                }
             },
             "name" : "@RJBS/@Git/Tag",
-            "version" : "2.025"
+            "version" : "2.028"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Push",
@@ -470,7 +470,7 @@
                }
             },
             "name" : "@RJBS/@Git/Push",
-            "version" : "2.025"
+            "version" : "2.028"
          },
          {
             "class" : "Dist::Zilla::Plugin::Encoding",
@@ -521,7 +521,7 @@
       "zilla" : {
          "class" : "Dist::Zilla::Dist::Builder",
          "config" : {
-            "is_trial" : "1"
+            "is_trial" : "0"
          },
          "version" : "5.025"
       }
